@@ -105,7 +105,9 @@ function setupPlugin(Hammer, $) {
 if(typeof define == 'function' && define.amd) {
   define(['hammerjs', 'jquery'], setupPlugin);
 }
-
+else if (typeof exports === 'object') {
+  setupPlugin(require('hammerjs'), require('jquery'));
+}
 else {
   setupPlugin(window.Hammer, window.jQuery || window.Zepto);
 }
